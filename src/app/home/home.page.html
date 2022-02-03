@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Async errors!</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ng-container
+    *ngIf="{user: user$ | async, userError: userError$ | async} as vm"
+  >
+    <ion-card *ngIf="!vm.userError && vm.user as user; else loading">
+      <ion-card-content>
+        <p>{{ user }}</p>
+      </ion-card-content>
+    </ion-card>
+    <ion-note *ngIf="vm.userError as error"> {{ error }} </ion-note>
+
+    <ng-template #loading>
+      <ion-card *ngIf="!vm.userError">
+        <ion-card-content>
+          <ion-skeleton-text animated></ion-skeleton-text>
+        </ion-card-content>
+      </ion-card>
+    </ng-template>
+  </ng-container>
+</ion-content>

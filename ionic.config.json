@@ -1,0 +1,7 @@
+{
+  "name": "async-error-handling",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
