@@ -9,7 +9,7 @@ import { UserService } from '../shared/data-access/user/user.service';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  user$ = this.userService.getTemporalUser();
+  user$ = this.userService.getUser();
   userError$ = this.user$.pipe(
     ignoreElements(),
     catchError((err) => of(err))
